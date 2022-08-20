@@ -169,20 +169,36 @@ $output = $header;
 $output .= '';
 $count = 0;
 
-//$files = array_slice(scandir('bikes'), 2);
-
-?>
-<div id="bike-" class="bike">
-	<h4 class="price float-right"></h4>
-	<h4 class="title"></h4>
-		<div class="card mt-3">
-	<div class="card-body">
-	<p></p>
-	</div>
-	</div>
-</div><!-- #bike- -->
-
-<?php 
+  $dir = 'bikes';
+  // Check if the directory exists
+  if (file_exists($dir) && is_dir($dir) ) {
+	  
+      // Get the files of the directory as an array
+      $scan_arr = scandir($dir);
+      $files_arr = array_diff($scan_arr, array('.','..') );
+      // echo "<pre>"; print_r( $files_arr ); echo "</pre>";
+      // Get each files of our directory with line break
+      foreach ($files_arr as $file) {
+		  //Get the file path
+		  $file_path = $dir.'/'.$file;
+		  // Get the file extension
+		  $file_ext = pathinfo($file_path, PATHINFO_EXTENSION);
+		  if ($file_ext=="jpg" || $file_ext=="png" || $file_ext=="JPG" || $file_ext=="PNG") {
+		  	$output .= $file . "<br>";
+		  } elseif ($file_ext == "md") {
+			  $contents = file($dir.'/'.$file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+			  //print_r($trimmed);
+			  $output .= <<<END
+			  <div class="bike">
+			  <h3>\${$contents[2]} - {$contents[0]}</h3>
+				 <div><img src="{$contents[1]}" alt="{$contents[0]}"</div>
+				 <div>{$contents[3]}</div>
+				 </div>
+			END;
+		  }
+	  }
+      
+  }
 
 $footer = <<<EOD
 </div>

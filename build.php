@@ -183,17 +183,15 @@ $count = 0;
 		  $file_path = $dir.'/'.$file;
 		  // Get the file extension
 		  $file_ext = pathinfo($file_path, PATHINFO_EXTENSION);
-		  if ($file_ext=="jpg" || $file_ext=="png" || $file_ext=="JPG" || $file_ext=="PNG") {
-		  	$output .= $file . "<br>";
-		  } elseif ($file_ext == "md") {
+		  if ($file_ext == "md") {
 			  $contents = file($dir.'/'.$file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 			  //print_r($trimmed);
 			  $output .= <<<END
 			  <div class="bike">
-			  <h3>\${$contents[2]} - {$contents[0]}</h3>
-				 <div><img src="{$contents[1]}" alt="{$contents[0]}"</div>
-				 <div>{$contents[3]}</div>
-				 </div>
+			  	<h3>\${$contents[2]} - {$contents[0]}</h3>
+				<div><img src="{$contents[1]}" alt="{$contents[0]}"></div>
+				<div>{$contents[3]}</div>
+			  </div>
 			END;
 		  }
 	  }

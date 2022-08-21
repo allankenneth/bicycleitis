@@ -81,5 +81,5 @@ View Our Rates<br>
 </div>
 </div>
 <p><!-- /wp:html --></p>
-EOD
+EOD;
 return $output;

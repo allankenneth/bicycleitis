@@ -198,7 +198,7 @@ $bikes = '';
 	  }
       
   }
-$output .= '<span class="badge badge-light">' . $count . '</span> bikes';
+$output .= '<h3><span class="badge badge-light">' . $count . '</span> bikes</h3>';
 $output .= $bikes;
 $footer = <<<EOD
 </div>

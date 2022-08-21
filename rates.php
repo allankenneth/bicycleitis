@@ -1,5 +1,5 @@
 <?php 
-$output = <<<EOD
+$output .= <<<EOD
 <p><button type="button" class="btn btn-success btn-block text-uppercase my-3" data-toggle="modal" data-target="#rateList"><br>
 View Our Rates<br>
 </button></p>
@@ -80,6 +80,5 @@ View Our Rates<br>
 </div>
 </div>
 </div>
-<p><!-- /wp:html --></p>
 EOD;
 return $output;

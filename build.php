@@ -163,7 +163,7 @@ View Our Rates<br>
 	</div>
 <div class="col-md-6 mt-3">
 <div class="m-3 p-3 text-center text-uppercase wesellopus">We Sell<br><a href="https://www.opusbike.com/" target="_blank"><img src="https://bicycle-itis.com/wp-content/uploads/opus-bikes-logo.png"></a><br> Bikes</div>
-<h3><span class="badge badge-light">17</span> Featured Bikes</h3>
+
 EOD;
 $output = $header;
 $output .= '';
@@ -198,7 +198,7 @@ $bikes = '';
 	  }
       
   }
-$output .= '<span class="bg-white text-black fs-6 rounded-lg p-1">' . $count . '</span> bikes';
+$output .= '<span class="badge badge-light">' . $count . '</span> bikes';
 $output .= $bikes;
 $footer = <<<EOD
 </div>

@@ -78,7 +78,7 @@ Closed Sunday/Monday</h4>
 <p>We carry a broad range of replacement parts to keep your bike going, with a variety of much needed lights, locks, helmets, and many other things.</p>
 EOD;
 
-$output .= require('rates.php');
+
 
 $output .= <<<EOD
 </div>

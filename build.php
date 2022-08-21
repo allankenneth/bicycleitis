@@ -168,7 +168,7 @@ EOD;
 $output = $header;
 $output .= '';
 $count = 0;
-
+$bikes = '';
   $dir = 'bikes';
   // Check if the directory exists
   if (file_exists($dir) && is_dir($dir) ) {
@@ -184,20 +184,22 @@ $count = 0;
 		  // Get the file extension
 		  $file_ext = pathinfo($file_path, PATHINFO_EXTENSION);
 		  if ($file_ext == "md") {
+			  $count++;
 			  $contents = file($dir.'/'.$file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 			  //print_r($trimmed);
-			  $output .= <<<END
+			  $bikes .= <<<END
 			  <div class="bike">
-			  	<h3>\${$contents[2]} - {$contents[0]}</h3>
-				<div><img src="{$contents[1]}" alt="{$contents[0]}"></div>
+			  	<h3><span class="fw-bold inline-block float-right pl-2">\${$contents[2]}</span> {$contents[0]}</h3>
 				<div>{$contents[3]}</div>
+				<div><img src="{$contents[1]}" alt="{$contents[0]}"></div>
 			  </div>
 			END;
 		  }
 	  }
       
   }
-
+$output .= '<span class="bg-white text-black fs-6 rounded-lg p-1">' . $count . '</span> bikes';
+$output .= $bikes;
 $footer = <<<EOD
 </div>
 </div>

@@ -24,7 +24,7 @@ if (file_exists($dir) && is_dir($dir) ) {
 			<div class="bike">
 				<h3><span class="fw-bold inline-block float-right pl-2">\${$contents[2]}</span> {$contents[0]}</h3>
 				<div>{$contents[3]}</div>
-				<div><img src="{$contents[1]}" alt="{$contents[0]}"></div>
+				<div><img src="bikes/{$contents[1]}" alt="{$contents[0]}"></div>
 			</div>
 			END;
 		}

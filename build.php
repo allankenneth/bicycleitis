@@ -35,4 +35,4 @@ $output .= $bikes;
 $output .= require('footer.php');
 $export = 'index.html';
 file_put_contents($export, $output);
-echo $output;
+//echo $output;
